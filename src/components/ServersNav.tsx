@@ -5,28 +5,54 @@ export function ServersNav() {
 
   return (
     <div className="space-y-2 overflow-y-scroll bg-gray-900 p-3">
-      <Link to="/" className="block">
-        <a
+      <Link to="/" className="group relative flex items-center">
+        <div
           className={`${
             location.pathname === "/"
-              ? "bg-brand rounded-2xl text-white"
-              : "hover:bg-brand rounded-3xl bg-gray-700 text-gray-100 hover:rounded-2xl hover:text-white"
-          } flex size-12 items-center justify-center transition-all duration-200`}
-        >
-          <DiscordIcon className="size-[30px]" />
-        </a>
+              ? // Indicator active state
+                "h-10"
+              : // Indicator inactive state
+                "h-5 scale-0 bg-opacity-0 group-hover:scale-100 group-hover:bg-opacity-100"
+            // Both states
+          } absolute -left-3 w-1 origin-left rounded-r bg-white transition-all duration-200`}
+        ></div>
+        <div className="group-active:translate-y-px">
+          <a
+            className={`${
+              location.pathname === "/"
+                ? // Server icon active state
+                  "rounded-2xl bg-brand text-white"
+                : // Server icon inactive state
+                  "rounded-3xl bg-gray-700 text-gray-100 group-hover:rounded-2xl group-hover:bg-brand group-hover:text-white"
+              // Both states
+            } flex size-12 items-center justify-center transition-all duration-200`}
+          >
+            <DiscordIcon className="size-[30px]" />
+          </a>
+        </div>
       </Link>
 
-      <Link to="/servers/1" className="block">
-        <a
+      <Link to="/servers/1" className="group relative flex items-center">
+        <div
           className={`${
             location.pathname === "/servers/1"
-              ? "rounded-2xl bg-green-700 text-white"
-              : "rounded-3xl bg-gray-700 text-gray-100 hover:rounded-2xl hover:bg-green-700 hover:text-white"
-          } flex size-12 items-center justify-center transition-all duration-200`}
-        >
-          S1
-        </a>
+              ? // Active state
+                "h-10"
+              : // Inactive state
+                "h-5 scale-0 bg-opacity-0 group-hover:scale-100 group-hover:bg-opacity-100"
+          } absolute -left-3 w-1 origin-left rounded-r bg-white transition-all duration-200`}
+        ></div>
+        <div className="group-active:translate-y-px">
+          <a
+            className={`${
+              location.pathname === "/servers/1"
+                ? "rounded-2xl bg-green-500 text-white"
+                : "rounded-3xl bg-gray-700 text-gray-100 group-hover:rounded-2xl group-hover:bg-green-500 group-hover:text-white"
+            } flex size-12 items-center justify-center transition-all duration-200`}
+          >
+            S1
+          </a>
+        </div>
       </Link>
     </div>
   );

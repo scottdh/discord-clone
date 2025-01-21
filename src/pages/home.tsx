@@ -7,7 +7,6 @@ export function Home() {
         </div>
         <div className="flex-1 space-y-2 overflow-y-scroll p-3 text-gray-300">
           <p className="text-white">Channel</p>
-          <p className="text-white">Channel</p>
           {[...Array(40)].map((_, i) => (
             <div key={i}>
               <p>Channel {i}</p>
